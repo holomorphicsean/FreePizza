@@ -7,13 +7,11 @@ import sys
 
 from utilities import utils, indices
 
-FILE_INDEX = 1 #argv works like [script name, args]
-
 def convert_jsonfile_to_csvfile():
 	if not utils.check_for_args(sys.argv):
 		utils.die("Usage: json_to_csv_converter <json file name>")
 
-	f = open(sys.argv[FILE_INDEX])
+	f = open(sys.argv[indices.FILE_INDEX])
 	json_obj = ""
 
 	for line in f:
