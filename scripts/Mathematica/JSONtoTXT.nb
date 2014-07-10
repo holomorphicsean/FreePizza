@@ -1,0 +1,270 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     11776,        261]
+NotebookOptionsPosition[     11220,        237]
+NotebookOutlinePosition[     11558,        252]
+CellTagsIndexPosition[     11515,        249]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Run", " ", "this", " ", "to", " ", "load", " ", "JSON", " ", "data"}], 
+   " ", "*)"}], 
+  RowBox[{
+   RowBox[{"file", " ", "=", " ", 
+    RowBox[{"Import", "[", "\"\<~/Downloads/train.json\>\"", "]"}]}], 
+   ";"}]}]], "Input",
+ CellChangeTimes->{{3.6140189038867292`*^9, 3.614018904302753*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Use", " ", "this", " ", "to", " ", "export", " ", "data", " ", "into", 
+    " ", "a", " ", "readable", " ", "text", " ", "file"}], " ", "*)"}], 
+  RowBox[{"Export", "[", 
+   RowBox[{"\"\<pizza_request_dataset.txt\>\"", ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Apply", "[", 
+          RowBox[{"List", ",", "#"}], "]"}], "&"}], "/@", "#"}], ")"}], "&"}],
+      "/@", "file"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.614017314127102*^9, 3.614017460947394*^9}, {
+  3.614018246312693*^9, 3.614018357719623*^9}, {3.614018768720422*^9, 
+  3.614018797500833*^9}}],
+
+Cell[BoxData["\<\"pizza_request_dataset.txt\"\>"], "Output",
+ CellChangeTimes->{{3.614017330581325*^9, 3.6140174635857697`*^9}, 
+   3.6140182698303556`*^9, {3.614018313569665*^9, 3.614018361357863*^9}}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Run", " ", "this", " ", "to", " ", "look", " ", "at", " ", "different", 
+    " ", "entries"}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"viewFileData", "[", "n_", "]"}], ":=", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"Apply", "[", 
+        RowBox[{"List", ",", "#"}], "]"}], "&"}], "/@", 
+      RowBox[{
+      "file", "\[LeftDoubleBracket]", "n", "\[RightDoubleBracket]"}]}], "//", 
+     "TableForm"}]}], ";"}]}]], "Input",
+ CellChangeTimes->{{3.614018812516958*^9, 3.614018821683806*^9}}],
+
+Cell["", "PageBreak",
+ PageBreakBelow->True],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"viewFileData", "[", "1", "]"}]], "Input",
+ CellChangeTimes->{{3.61401834674089*^9, 3.6140183528806763`*^9}, {
+  3.6140188051639013`*^9, 3.614018809778015*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {"\<\"giver_username_if_known\"\>", "\<\"N/A\"\>"},
+    {"\<\"in_test_set\"\>", "False"},
+    {"\<\"number_of_downvotes_of_request_at_retrieval\"\>", "2"},
+    {"\<\"number_of_upvotes_of_request_at_retrieval\"\>", "6"},
+    {"\<\"post_was_edited\"\>", "False"},
+    {"\<\"requester_account_age_in_days_at_request\"\>", "14.416875`"},
+    {"\<\"requester_account_age_in_days_at_retrieval\"\>", 
+     "531.9697222222222`"},
+    {"\<\"requester_days_since_first_post_on_raop_at_request\"\>", "0.`"},
+    {"\<\"requester_days_since_first_post_on_raop_at_retrieval\"\>", 
+     "517.5111805555556`"},
+    {"\<\"requester_number_of_comments_at_request\"\>", "8"},
+    {"\<\"requester_number_of_comments_at_retrieval\"\>", "93"},
+    {"\<\"requester_number_of_comments_in_raop_at_request\"\>", "0"},
+    {"\<\"requester_number_of_comments_in_raop_at_retrieval\"\>", "4"},
+    {"\<\"requester_number_of_posts_at_request\"\>", "1"},
+    {"\<\"requester_number_of_posts_at_retrieval\"\>", "6"},
+    {"\<\"requester_number_of_posts_on_raop_at_request\"\>", "0"},
+    {"\<\"requester_number_of_posts_on_raop_at_retrieval\"\>", "2"},
+    {"\<\"requester_number_of_subreddits_at_request\"\>", "8"},
+    {"\<\"requester_received_pizza\"\>", "True"},
+    {"\<\"requester_subreddits_at_request\"\>", GridBox[{
+       {"\<\"AdviceAnimals\"\>"},
+       {"\<\"WTF\"\>"},
+       {"\<\"funny\"\>"},
+       {"\<\"gaming\"\>"},
+       {"\<\"movies\"\>"},
+       {"\<\"technology\"\>"},
+       {"\<\"todayilearned\"\>"},
+       {"\<\"videos\"\>"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.1]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}]},
+    {"\<\"requester_upvotes_minus_downvotes_at_request\"\>", "32"},
+    {"\<\"requester_upvotes_minus_downvotes_at_retrieval\"\>", "212"},
+    {"\<\"requester_upvotes_plus_downvotes_at_request\"\>", "48"},
+    {"\<\"requester_upvotes_plus_downvotes_at_retrieval\"\>", "610"},
+    {"\<\"requester_user_flair\"\>", "\<\"shroom\"\>"},
+    {"\<\"requester_username\"\>", "\<\"RitalinYourMemory\"\>"},
+    {"\<\"request_id\"\>", "\<\"t3_w5491\"\>"},
+    {"\<\"request_number_of_comments_at_retrieval\"\>", "7"},
+    {"\<\"request_text\"\>", "\<\"I'm not in College, or a starving artist or \
+anything like that. I've just been a bit unlucky lately. I'm a 36 year old \
+single guy with a job. But rent, and other bills killed me this month. I \
+thought I had enough funds in my account to at least keep me set with Mr. \
+Noodles, I forgot about my monthly banking fee.\\n\\nI had a small bag of \
+chips Wednesday afternoon, and I get paid Monday, so I'll be fine then.. It's \
+just really painful at this point and food is something I'm constantly \
+thinking about.\\n\\nI've got a few bucks to get on the bus to work on \
+Saturday, so I can't really use that.\\n\\nI'm really embarrassed to even be \
+asking like this and I'm not sure how it works, so please be patient with me.\
+\\n\\nI guess that covers it. Thank you in advance.\\n\\nCheers folks.\"\>"},
+    {"\<\"request_text_edit_aware\"\>", "\<\"I'm not in College, or a \
+starving artist or anything like that. I've just been a bit unlucky lately. \
+I'm a 36 year old single guy with a job. But rent, and other bills killed me \
+this month. I thought I had enough funds in my account to at least keep me \
+set with Mr. Noodles, I forgot about my monthly banking fee.\\n\\nI had a \
+small bag of chips Wednesday afternoon, and I get paid Monday, so I'll be \
+fine then.. It's just really painful at this point and food is something I'm \
+constantly thinking about.\\n\\nI've got a few bucks to get on the bus to \
+work on Saturday, so I can't really use that.\\n\\nI'm really embarrassed to \
+even be asking like this and I'm not sure how it works, so please be patient \
+with me.\\n\\nI guess that covers it. Thank you in advance.\\n\\nCheers \
+folks.\"\>"},
+    {"\<\"request_title\"\>", "\<\"[Request] Ontario, Canada - On my 3rd of 5 \
+days without food, and it's getting unbearable. Can anyone help?\"\>"},
+    {"\<\"unix_timestamp_of_request\"\>", "1.341604684`*^9"},
+    {"\<\"unix_timestamp_of_request_utc\"\>", "1.341601084`*^9"}
+   },
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}, "RowsIndexed" -> {}}],
+  TableForm[{{"giver_username_if_known", "N/A"}, {"in_test_set", False}, {
+    "number_of_downvotes_of_request_at_retrieval", 2}, {
+    "number_of_upvotes_of_request_at_retrieval", 6}, {
+    "post_was_edited", False}, {
+    "requester_account_age_in_days_at_request", 14.416875}, {
+    "requester_account_age_in_days_at_retrieval", 531.9697222222222}, {
+    "requester_days_since_first_post_on_raop_at_request", 0.}, {
+    "requester_days_since_first_post_on_raop_at_retrieval", 
+     517.5111805555556}, {"requester_number_of_comments_at_request", 8}, {
+    "requester_number_of_comments_at_retrieval", 93}, {
+    "requester_number_of_comments_in_raop_at_request", 0}, {
+    "requester_number_of_comments_in_raop_at_retrieval", 4}, {
+    "requester_number_of_posts_at_request", 1}, {
+    "requester_number_of_posts_at_retrieval", 6}, {
+    "requester_number_of_posts_on_raop_at_request", 0}, {
+    "requester_number_of_posts_on_raop_at_retrieval", 2}, {
+    "requester_number_of_subreddits_at_request", 8}, {
+    "requester_received_pizza", True}, {
+    "requester_subreddits_at_request", {
+     "AdviceAnimals", "WTF", "funny", "gaming", "movies", "technology", 
+      "todayilearned", "videos"}}, {
+    "requester_upvotes_minus_downvotes_at_request", 32}, {
+    "requester_upvotes_minus_downvotes_at_retrieval", 212}, {
+    "requester_upvotes_plus_downvotes_at_request", 48}, {
+    "requester_upvotes_plus_downvotes_at_retrieval", 610}, {
+    "requester_user_flair", "shroom"}, {
+    "requester_username", "RitalinYourMemory"}, {"request_id", "t3_w5491"}, {
+    "request_number_of_comments_at_retrieval", 7}, {
+    "request_text", 
+     "I'm not in College, or a starving artist or anything like that. I've \
+just been a bit unlucky lately. I'm a 36 year old single guy with a job. But \
+rent, and other bills killed me this month. I thought I had enough funds in \
+my account to at least keep me set with Mr. Noodles, I forgot about my \
+monthly banking fee.\n\nI had a small bag of chips Wednesday afternoon, and I \
+get paid Monday, so I'll be fine then.. It's just really painful at this \
+point and food is something I'm constantly thinking about.\n\nI've got a few \
+bucks to get on the bus to work on Saturday, so I can't really use that.\n\n\
+I'm really embarrassed to even be asking like this and I'm not sure how it \
+works, so please be patient with me.\n\nI guess that covers it. Thank you in \
+advance.\n\nCheers folks."}, {
+    "request_text_edit_aware", 
+     "I'm not in College, or a starving artist or anything like that. I've \
+just been a bit unlucky lately. I'm a 36 year old single guy with a job. But \
+rent, and other bills killed me this month. I thought I had enough funds in \
+my account to at least keep me set with Mr. Noodles, I forgot about my \
+monthly banking fee.\n\nI had a small bag of chips Wednesday afternoon, and I \
+get paid Monday, so I'll be fine then.. It's just really painful at this \
+point and food is something I'm constantly thinking about.\n\nI've got a few \
+bucks to get on the bus to work on Saturday, so I can't really use that.\n\n\
+I'm really embarrassed to even be asking like this and I'm not sure how it \
+works, so please be patient with me.\n\nI guess that covers it. Thank you in \
+advance.\n\nCheers folks."}, {
+    "request_title", 
+     "[Request] Ontario, Canada - On my 3rd of 5 days without food, and it's \
+getting unbearable. Can anyone help?"}, {
+    "unix_timestamp_of_request", 1.341604684*^9}, {
+    "unix_timestamp_of_request_utc", 1.341601084*^9}}]]], "Output",
+ CellChangeTimes->{{3.6140183492817583`*^9, 3.614018361977707*^9}}]
+}, Open  ]]
+},
+WindowSize->{683, 716},
+WindowMargins->{{Automatic, -10}, {Automatic, -10}},
+FrontEndVersion->"9.0 for Linux x86 (64-bit) (February 7, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 357, 10, 55, "Input"],
+Cell[CellGroupData[{
+Cell[939, 34, 684, 18, 77, "Input"],
+Cell[1626, 54, 202, 2, 32, "Output"]
+}, Open  ]],
+Cell[1843, 59, 599, 17, 55, "Input"],
+Cell[2445, 78, 44, 1, 4, "PageBreak",
+ PageBreakBelow->True],
+Cell[CellGroupData[{
+Cell[2514, 83, 183, 3, 32, "Input"],
+Cell[2700, 88, 8504, 146, 1122, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
