@@ -3,6 +3,7 @@
 # a small description of what it does above the funcitond definition. 
 
 import sys
+import datetime
 
 '''Error functions'''
 def die(msg=""):
@@ -14,4 +15,7 @@ def check_for_args(args, numOfArgs=1):
 		return False
 	else:
 		return True
+
+def timestamp_to_datetime(timestamp):
+	return datetime.datetime.fromtimestamp(timestamp).strfttime('%Y-%m-%d %H:%M:%S')
 
