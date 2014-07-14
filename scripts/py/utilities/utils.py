@@ -17,5 +17,5 @@ def check_for_args(args, numOfArgs=1):
 		return True
 
 def timestamp_to_datetime(timestamp):
-	return datetime.datetime.fromtimestamp(timestamp).strfttime('%Y-%m-%d %H:%M:%S')
+	return datetime.datetime.fromtimestamp(float(timestamp))
 
