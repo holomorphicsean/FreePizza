@@ -1,5 +1,5 @@
 from PyML import *
-
+from math import *
 
 ## Let's grab the data and put it into a list of lists for the SVM
 
@@ -47,12 +47,16 @@ with open('/home/shawn/FreePizza/data/txt/gotpizza.txt','r') as gp:
 
 ## Now it's time to load our data into PyML's vector objects
 
-#Load data
-data = VectorDataSet(X,L=y)
+#Load data (let's try 1/5th of it first)
+fifth = int(floor(len(y)/5));
+X2 = X[0:fifth];
+y2 = y[0:fifth];
+
+data = VectorDataSet(X2,L=y2)
 
 #Create SVM object, then train our set
 s = SVM()
 s.train(data)
-s.save("freePizza")
+s.save("freePizza_test1")
 
 ## Yay!
