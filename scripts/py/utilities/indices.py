@@ -38,3 +38,7 @@ REQUESTER_TEXT_EDIT_AWARE = 28
 REQUEST_ID = 29
 REQUESTER_NUMBER_OF_COMMENTS_IN_RAOP_AT_REQUEST = 30
 REQUESTER_NUMBER_OF_SUBREDDITS_AT_REQUEST = 31
+
+#TIME RELATED THINGS
+MONTHS = {1: "January", 2: "February", 3: "March", 4: "April", 5: "May", 6: "June", 7:"July", 8:"August", 9:"September", 10:"October", 11:"November", 12:"December"}
+DAYS_OF_THE_WEEK = {0:"Monday", 1:"Tuesday", 2:"Wednesday", 3:"Thursday", 4:"Friday", 5:"Saturday", 6:"Sunday"}
