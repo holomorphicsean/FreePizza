@@ -1,15 +1,17 @@
-from PyML import *
+import pySVM_utils
 from math import *
 import sys
 import os
 
 ## Check arguments
 def die():
-    print "Usage: python pySVM.py -a <Path to training data> <path to binary data\nuse -a if the path is to ~/FreePizza/data/txt/";
+    print "Usage: python pySVM.py -a <Path to training data> <path to binary data> -c\nuse -a flag if the path is to ~/FreePizza/data/txt/";
+    print "use -c flag if to cross validata data"
     exit()
 
 
-if len(sys.argv) < 3:
+#Die if not in python pySVM.py (flag1) (arg1) (arg2) (flag2) form
+if len(sys.argv) < 2 or len(sys.argv) > 5:
     die()
 
 mypath = os.getenv("HOME")
@@ -22,14 +24,13 @@ else:
     path1 = sys.argv[1]
     path2 = sys.argv[2]
 
-
 ## Let's grab the data and put it into a list of lists for the SVM
 
 #Initialize
 X = []
 
 #Now read the data
-with open('/home/shawn/FreePizza/data/txt/upvsdown.txt','r') as f:
+with open(path1,'r') as f:
 
     #Keep a counter
     i = 0;
@@ -56,7 +57,7 @@ with open('/home/shawn/FreePizza/data/txt/upvsdown.txt','r') as f:
 
 #Initialize
 y = []
-with open('/home/shawn/FreePizza/data/txt/gotpizza.txt','r') as gp:
+with open(path2,'r') as gp:
 
     for line in gp:
         # Turn string to boolean
@@ -67,26 +68,12 @@ with open('/home/shawn/FreePizza/data/txt/gotpizza.txt','r') as gp:
 
         y.append(temp)
 
-## Now it's time to load our data into PyML's vector objects
+## Now we feed the information into PyML
 
-data = VectorDataSet(X2,L=y2)
-
-#Create SVM object, then train our set
-s = SVM()
-s.train(data)
-s.save("freePizza")
+#If the -c flag was used at the end, then we're cross validating
+if sys.argv[-1] == '-c':
+    pySVM_utils.cross_validate(X,y)
+else:
+    pySVM_utils.train(X,y)
 
 ## Yay!
-
-# Now to cross-validate the data; we first take the other set
-X3 = X[fifth+1:-1];
-y3 = y[fifth+1:-1];
-
-print y3
-#Load our training data
-from PyML.classifiers.svm import loadSVM
-loadedSVM = loadSVM("freePizza",data)
-
-testData = VectorDataSet(X3,L=y3)
-r = loadedSVM.test(testData)
-print r
